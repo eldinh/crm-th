@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> findAll() {
-        return (List<Employee>) employeeRepository.findAll();
+        return (List<Employee>) employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
@@ -36,8 +36,13 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee findByFirstName(String firstName) {
+    public List<Employee> findByFirstName(String firstName) {
         return employeeRepository.findByFirstName(firstName);
+    }
+
+    @Override
+    public Employee findByEmail(String email) {
+        return employeeRepository.findByEmail(email);
     }
 
 }
