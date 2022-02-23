@@ -24,6 +24,9 @@
         <form action="#" th:action="@{/employees/save}"
                          th:object="${employee}" method="POST">
 
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}">
+
                                 <!-- * - reference to the th:object -->
             <input type="text" th:field="*{firstName}"
                 class="form-control rb-4 col-4" placeholder="First name">
